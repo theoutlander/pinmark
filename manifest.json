@@ -1,0 +1,29 @@
+{
+
+  "manifest_version": 2,
+  "name": "PinMark",
+  "version": "0.1",
+  "description": "Bookmarks visualization",
+
+   "chrome_url_overrides" : {
+    	"bookmarks": "PinMark.html"
+  },
+
+  "permissions": ["bookmarks", "storage", "http://*/"],
+
+/*"background" :{
+    "scripts": [
+      "pinmark.js"
+    ]
+  },
+*/
+  "content_scripts": [
+			  {
+			  	"matches": ["*://*/*",
+			  	"*://bookmarks/*"],
+			  	"js": ["pinmark.js"],
+			  	"css": ["theme.css"],
+			  	"run_at": "document_end"
+			  }
+  			]
+}
