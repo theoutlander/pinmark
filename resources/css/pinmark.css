@@ -1,0 +1,14 @@
+img {
+	width: 100%;
+	max-height: 400px;
+}
+
+div {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    /*white-space: nowrap;*/
+}
+
+.carousel {
+    height: 300px;
+}

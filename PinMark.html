@@ -1,91 +1,128 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-<head>  
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+    
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
-
-  <title>Visual Bookmarks</title>
-
+        <title>Visual Bookmarks</title>
         <meta name="generator" content="Bootply" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
-        
         <!--[if lt IE 9]>
-          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-                		
-<script src="dist/js/pinmark.js"></script>
-<script src="dist/js/jquery-2.0.3.min.js"></script>
-<script src="dist/js/bootstrap.js"></script>
-<link src="dist/css/bootstrap.css"></link>
-		<link href="dist/css/theme.css" rel="stylesheet">
-</head>
+        <script src="resources/js/pinmark.js"></script>
+        <script src="resources/js/jquery-2.0.3.min.js"></script>
+        <script src="resources/js/bootstrap.js"></script>
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+        <link src="resources/css/bootstrap.css"></link>
+        <link href="resources/css/theme.css" rel="stylesheet">
+        <link href="resources/css/pinmark.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        <div class="navbar navbar-fixed-top header">
+            <div class="col-md-12">
+                <div class="navbar-header"> <a href="#" class="navbar-brand">Pinbook</a>
 
-<body>
-		<div class="navbar navbar-fixed-top header">
-		<div class="col-md-12">
-			<div class="navbar-header">
-			  
-			  <a href="#" class="navbar-brand">Pinbook</a>
-			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse1">
-			  	<i class="glyphicon glyphicon-search"></i>
-			  </button>
-		  
-			</div>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse1"> <i class="glyphicon glyphicon-search"></i>
 
-			<div class="collapse navbar-collapse" id="navbar-collapse1">
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-collapse1">
+                    <div class="navbar-form pull-left">
+                        <div class="input-group" style="max-width:470px;">
+                            <input type="text" id="txtSearch" class="form-control" placeholder="Search within your bookmarks" name="srch-term">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default btn-primary" id="btnSearch"><i class="glyphicon glyphicon-search"></i>
 
-			  <div class="navbar-form pull-left">
-				  <div class="input-group" style="max-width:470px;">
-					<input type="text" id="txtSearch" class="form-control" placeholder="Search within your bookmarks" name="srch-term">
-					<div class="input-group-btn">
-					  <button class="btn btn-default btn-primary" id="btnSearch"><i class="glyphicon glyphicon-search"></i></button>
-					</div>
-				  </div>
-			  </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="http://www.bootply.com" target="_ext">Bootply+</a>
 
-			  <ul class="nav navbar-nav navbar-right">
-				 <li><a href="http://www.bootply.com" target="_ext">Bootply+</a></li>
-				 <li>
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-bell"></i></a>
-					<ul class="dropdown-menu">
-					  <li><a href="#"><span class="badge pull-right">40</span>Link</a></li>
-					  <li><a href="#"><span class="badge pull-right">2</span>Link</a></li>
-					  <li><a href="#"><span class="badge pull-right">0</span>Link</a></li>
-					  <li><a href="#"><span class="label label-info pull-right">1</span>Link</a></li>
-					  <li><a href="#"><span class="badge pull-right">13</span>Link</a></li>
-					</ul>
-				 </li>
-				 <li><a href="#" id="btnToggle"><i class="glyphicon glyphicon-th"></i></a></li>
-				 <li><a href="#"><i class="glyphicon glyphicon-user"></i></a></li>
-			   </ul>
-			</div>	
-		 </div>	
-		</div>
+                        </li>
+                        <li>    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-bell"></i></a>
 
-		
-		<!--main-->
-		<div class="container" id="main">
-		
-		<div class="row" id="bookmarks">
-		<!--
-		<div class="col-md-4 col-sm-6">
-				<div class="panel panel-default">
-				   <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Upgrade to Bootstrap 3</h4></div>
-					<div class="panel-body">
-					  <img src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=70" class="img-circle pull-right"> <a href="#">Guidance and Tools</a>
-					  <div class="clearfix"></div>
-					  <hr>
-					  <p>Migrating from Bootstrap 2.x to 3 is not a simple matter of swapping out the JS and CSS files.
-					  Bootstrap 3 is a major overhaul, and there are a lot of changes from Bootstrap 2.x. <a href="http://bootply.com/bootstrap-3-migration-guide">This guidance</a> is intended to help 2.x developers transition to 3.
-					  </p>
-					  <h5><a href="http://google.com/+bootply">More on Upgrading from +Bootply</a></h5>
-					  
-					</div>
-				 </div> 
-			</div>	
-		!-->
-		</div>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><span class="badge pull-right">40</span>Link</a>
 
-</body>
+                                </li>
+                                <li><a href="#"><span class="badge pull-right">2</span>Link</a>
+
+                                </li>
+                                <li><a href="#"><span class="badge pull-right">0</span>Link</a>
+
+                                </li>
+                                <li><a href="#"><span class="label label-info pull-right">1</span>Link</a>
+
+                                </li>
+                                <li><a href="#"><span class="badge pull-right">13</span>Link</a>
+
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#" id="btnToggle"><i class="glyphicon glyphicon-th"></i></a>
+
+                        </li>
+                        <li><a href="#"><i class="glyphicon glyphicon-user"></i></a>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--main-->
+        <div class="container" id="main">
+            <div class="row" id="bookmarks">
+                <div class="col-md-4 col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><a href="#" class="pull-right">View all</a> 
+                             <h4>Upgrade to Bootstrap 3</h4>
+                        </div>
+                        <div class="panel-body">
+                            
+                            <!--
+                                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner">                                        
+                                    </div>
+
+                                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                    </a>
+                                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </a>
+                                </div>
+                            -->
+
+                            <img src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=70" class="img-circle pull-right"> <a href="#">Guidance and Tools</a>
+
+                            <div class="clearfix"></div>
+                            <hr>
+                            <p>Migrating from Bootstrap 2.x to 3 is not a simple matter of swapping out the JS and CSS files. Bootstrap 3 is a major overhaul, and there are a lot of changes from Bootstrap 2.x. <a href="http://bootply.com/bootstrap-3-migration-guide">This guidance</a> is intended to help 2.x developers transition to 3.</p>
+                            <h5><a href="http://google.com/+bootply">More on Upgrading from +Bootply</a></h5>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-md-4 col-sm-6">
+                <div class="panel panel-default">
+                   <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Upgrade to Bootstrap 3</h4></div>
+                    <div class="panel-body">
+                      <img src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=70" class="img-circle pull-right"> <a href="#">Guidance and Tools</a>
+                      <div class="clearfix"></div>
+                      <hr>
+                      <p>Migrating from Bootstrap 2.x to 3 is not a simple matter of swapping out the JS and CSS files.
+                      Bootstrap 3 is a major overhaul, and there are a lot of changes from Bootstrap 2.x. <a href="http://bootply.com/bootstrap-3-migration-guide">This guidance</a> is intended to help 2.x developers transition to 3.
+                      </p>
+                      <h5><a href="http://google.com/+bootply">More on Upgrading from +Bootply</a></h5>
+                    </div>
+                    </div> 
+                 </div> 
+              !--></div>
+        </div>
+    </body>
+
 </html>

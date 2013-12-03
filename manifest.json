@@ -21,8 +21,8 @@
 			  {
 			  	"matches": ["*://*/*",
 			  	"*://bookmarks/*"],
-			  	"js": ["pinmark.js"],
-			  	"css": ["theme.css"],
+			  	"js": ["resources/js/pinmark.js"],
+			  	"css": ["resources/css/theme.css", "resources/css/pinmark.css"],
 			  	"run_at": "document_end"
 			  }
   			]
