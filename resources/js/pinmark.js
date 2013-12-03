@@ -69,17 +69,28 @@ function fetchFromCache(bookmark, callback) {
 
                     var e = document.createElement('div');
                     e.innerHTML = result;
+                    element.title = "";
 
                     var title = e.getElementsByTagName('title');
                     if (title && title.length != null && title.length > 0) {
                         element.title = title[0].textContent;
                     }
 
+                    var snippet = e.getElementsByTagName('p');
+                    element.snippet = "";
+
+                    if (snippet && snippet.length != null && snippet.length > 0) {
+                        try {
+                            element.snippet = snippet[0].textContent.substring(0, snippet[0].textContent.length > 100 ? 100 : snippet[0].textContent.length);
+                        } catch (e) {
+                            console.log(e);
+                        } 
+                    }
+
                     var images = e.getElementsByTagName('img');
+                    element.images = [];
 
                     if (images && images.length != null) {
-
-                        element.images = [];
                         for (var i = 0; i < images.length; i++) {
                             if (images[i].src.indexOf("http") == 0) {
                                 element.images.push(images[i].src);
@@ -114,6 +125,15 @@ function fetchContent(bookmark, panelheadingtitle, panelbody, callback) {
     fetchFromCache(bookmark, function (element) {
 
         panelheadingtitle.appendChild(document.createTextNode(element.title));
+
+        try {
+            var p = document.createElement("p");
+            p.textContent = element.snippet;
+            panelbody.appendChild(p);
+
+        } catch(e) {
+            console.log(e);
+        }
 
         if (element.images && element.images.length>0) {
             var div = document.createElement("div");
@@ -165,12 +185,6 @@ function fetchContent(bookmark, panelheadingtitle, panelbody, callback) {
 };
 
 function removeEmptyImage(image, div) {
-    //image.addEventListener("load", function (e) {
-    //    if (e.srcElement.naturalWidth == 0 || e.srcElement.naturalHeight == 0) {
-    //        div.removeChild(image);
-    //    }
-    //});
-    
     image.addEventListener("error", function (e) {
         if (e.srcElement.naturalWidth == 0 || e.srcElement.naturalHeight == 0) {
             div.removeChild(image);
